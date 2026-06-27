@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS `%prefix%api_publish` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `app_id` VARCHAR(64) NOT NULL,
+  `app_secret` VARCHAR(128) NOT NULL,
+  `name` VARCHAR(100) NOT NULL DEFAULT '',
+  `description` VARCHAR(255) NOT NULL DEFAULT '',
+  `state` TINYINT(1) NOT NULL DEFAULT 1,
+  `created` INT UNSIGNED NOT NULL DEFAULT 0,
+  `last_used` INT UNSIGNED NOT NULL DEFAULT 0,
+  `call_count` INT UNSIGNED NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_app_id` (`app_id`)
+) ENGINE=%engine% DEFAULT CHARSET=utf8mb4;

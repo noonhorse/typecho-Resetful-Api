@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS `%prefix%api_publish` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `app_id` VARCHAR(64) NOT NULL,
+  `app_secret` VARCHAR(128) NOT NULL,
+  `name` VARCHAR(100) NOT NULL DEFAULT '',
+  `description` VARCHAR(255) NOT NULL DEFAULT '',
+  `state` TINYINT(1) NOT NULL DEFAULT 1,
+  `created` INT UNSIGNED NOT NULL DEFAULT 0,
+  `last_used` INT UNSIGNED NOT NULL DEFAULT 0,
+  `call_count` INT UNSIGNED NOT NULL DEFAULT 0
+);
+CREATE UNIQUE INDEX IF NOT EXISTS `uniq_app_id` ON `%prefix%api_publish` (`app_id`);
